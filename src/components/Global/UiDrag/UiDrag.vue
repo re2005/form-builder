@@ -7,6 +7,7 @@
         :source="source"
         :clone="clone"
         :animation="100"
+        easing="cubic-bezier(.5, 1.2, .6, 1.4)"
         @end="onChange"
     >
         <li
@@ -82,7 +83,7 @@
     ul {
 
         li {
-            padding: $margin-default 0;
+            padding: $margin-default / 2 0;
             display: flex;
             cursor: move;
 

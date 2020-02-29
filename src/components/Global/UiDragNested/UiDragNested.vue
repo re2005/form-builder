@@ -75,7 +75,7 @@
             </draggable>
 
             <b-button
-                class="add-step"
+                class="add-step is-padding-small"
                 expanded
                 type="is-medium"
                 @click="addStep"
@@ -94,7 +94,7 @@
     import draggable from 'vuedraggable';
     import UiDrag from '@/components/Global/UiDrag/UiDrag.vue';
     import StepEditModal from '@/components/Global/Modals/StepEditModal.vue';
-    import { cloneDeep } from 'lodash';
+    import { cloneDeep, isEqual } from 'lodash';
     import { elementList } from '@/components/Global/UiDragNested/elementList';
 
     @Component({
@@ -108,15 +108,19 @@
         @Prop() list!: Array<any>;
 
         elementList = elementList;
+        listClone: Array<any> = [];
 
         lastAdded = undefined;
 
         clone(v: any) {
             this.lastAdded = cloneDeep(v);
+            this.listClone = cloneDeep(this.list);
             return this.lastAdded;
         }
 
-        hasEnded() {
+        async hasEnded() {
+            await this.$nextTick();
+            if (isEqual(this.listClone, this.list)) return;
             this.edit(this.lastAdded);
         }
 
@@ -181,6 +185,14 @@
 
         /deep/ li {
             color: $color-gray-60;
+            transition: all .2s cubic-bezier(.5, 1.2, .6, 1.4);
+
+            &:hover {
+                border-radius: $border-radius / 2;
+                background: $color-gray-80;
+                color: $color-gray-30;
+                padding-left: 2 * $margin-default;
+            }
         }
     }
 
