@@ -1,0 +1,152 @@
+@import 'config';
+
+@mixin table-primary {
+    position: relative;
+    background: none;
+    border-spacing: 0 6px;
+    border: none !important;
+
+    .border-desktop {
+        border: none !important;
+
+        @include breakpoint-up(sm) {
+
+            &:first-child {
+                border-radius: $border-radius 0 0 $border-radius;
+            }
+
+            &:last-child {
+                border-radius: 0 $border-radius $border-radius 0;
+            }
+        }
+    }
+
+    thead {
+        margin-bottom: 20px;
+        border-radius: $border-radius;
+        padding: $margin-default / 2 $margin-default;
+        @include font-size($small-font-sizes);
+
+        tr {
+            th {
+                padding: $margin-default 0 $margin-default / 2 $margin-default / 2;
+                background: rgba($color-blue-gray-02, .1);
+            }
+
+            // This is here for if search is enable
+            &:nth-child(2) th {
+                padding: $margin-default 0 0 $margin-default / 2;
+            }
+        }
+    }
+
+    tbody {
+
+        tr {
+            padding: 0;
+            box-shadow: 0 2px 6px 0 rgba($color-gray-100, .05) !important;
+            margin-bottom: $margin-default / 2 !important;
+
+            @include breakpoint-up(sm) {
+                padding: 2 * $margin-default 0;
+                border-radius: $border-radius;
+            }
+        }
+
+        td {
+            background: $color-gray-00;
+            border: none !important;
+
+            &:not(.mobile-header-column):before {
+                color: $color-blue-gray-02;
+            }
+
+            @include breakpoint-up(sm) {
+                padding: $margin-default 0;
+            }
+
+            @include breakpoint-down(sm) {
+                padding: $margin-default / 2 $margin-default * 2;
+                @include font-size($small-font-sizes);
+
+                &:first-child {
+                    border-radius: $border-radius / 2 $border-radius / 2 0 0;
+
+                    & + td {
+                        padding-top: 2 * $margin-default;
+                    }
+                }
+
+                &:last-child {
+                    padding-bottom: 2 * $margin-default;
+                    border-radius: 0 0 $border-radius / 2 $border-radius / 2;
+                }
+            }
+        }
+    }
+
+    td, th {
+        @extend .border-desktop;
+        vertical-align: middle;
+    }
+
+    .th-wrap {
+        color: $color-blue-gray-02;
+    }
+
+    .mobile-header-column {
+        padding: 2 * $margin-default $margin-default * 2 $margin-default;
+        justify-content: left;
+        text-align: initial !important;
+        border-bottom: 2px solid rgba($color-blue-dark, .2) !important;
+
+        &:before {
+            display: none;
+        }
+
+        .mobile-header-column-actions {
+            .ui-icon {
+                margin-left: $margin-default;
+            }
+        }
+    }
+
+    figure {
+        margin-left: 2 * $margin-default;
+        max-width: 60px;
+
+        img {
+            border-radius: 100%;
+        }
+    }
+}
+
+
+@mixin table-secondary {
+    position: relative;
+    background: none;
+    border: none !important;
+
+    .th-wrap {
+        color: $color-blue-gray-02;
+        @include font-size($small-font-sizes);
+    }
+
+    thead {
+        .th-wrap {
+            padding-top: 6px;
+        }
+    }
+
+    td {
+        padding: 20px 10px;
+    }
+    th, td {
+        border-bottom-width: 1px;
+        border-color: $color-blue-gray-01;
+    }
+
+    .b-table .table th.is-current-sort {
+        border-color: red;
+    }
+}

@@ -1,0 +1,30 @@
+@import "mixins";
+
+$button-padding-vertical: 7px;
+$button-padding-horizontal: 28px;
+//$button-border-width: 2px;
+
+.button {
+
+    height: auto !important;
+
+    &.is-mobile {
+        padding: 7px 28px !important;
+    }
+
+    &.is-padding-small {
+        padding: 2px 18px !important;
+        height: 36px !important;
+        @include font-size($small-font-sizes);
+    }
+
+    @include breakpoint-up(sm) {
+        padding: 14px 32px !important;
+    }
+
+    &.is-primary {
+        &:hover {
+            background-color: $color-blue-dark !important;
+        }
+    }
+}

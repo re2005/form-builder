@@ -1,0 +1,60 @@
+@import "mixins";
+
+$font-dir: "../fonts/";
+
+@mixin font-face($font-label, $font-path, $font-name, $type, $format, $style: normal, $weight: normal) {
+    @font-face {
+        font-family: $font-label;
+        src: url($font-path + $font-name + $type) format($format);
+        font-weight: $weight;
+        font-style: $style;
+    }
+}
+
+@include font-face("FiraSans-Regular", $font-dir, "FiraSans-Regular", ".woff2", "woff2");
+@include font-face("FiraSans-Medium", $font-dir, "FiraSans-Medium", ".woff2", "woff2");
+@include font-face("FiraSans-Italic", $font-dir, "FiraSans-Italic", ".woff2", "woff2", "italic");
+
+/* ------------------------------------------------------------------------------------------------------------
+* Define main font styles
+*------------------------------------------------------------------------------------------------------------*/
+
+
+.is-fs-italic {
+    @include fs-italic;
+}
+
+
+// Global font sizes
+h1 {
+    @include font-size($h1-font-sizes);
+}
+
+h2 {
+    @include font-size($h2-font-sizes);
+}
+
+h3 {
+    @include font-size($h3-font-sizes);
+}
+
+h4 {
+    @include font-size($h4-font-sizes);
+}
+
+h5 {
+    @include font-size($h5-font-sizes);
+}
+
+p {
+    @include font-size($regular-font-sizes);
+    @include fs-regular;
+}
+
+.is-font-size-small {
+    @include font-size($small-font-sizes);
+}
+
+.is-font-size-big {
+    @include font-size($big-font-sizes);
+}

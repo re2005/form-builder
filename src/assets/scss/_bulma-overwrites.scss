@@ -1,0 +1,35 @@
+@import '~bulma/sass/utilities/initial-variables';
+@import '~bulma/sass/utilities/functions';
+@import './config';
+
+// Colors
+$primary: $color-blue;
+$success: $color-green;
+$danger: $color-red;
+$info: $color-blue-gray-02;
+
+// Text Color
+$text: $color-gray;
+
+// Fonts
+$family-primary: FiraSans-Regular;
+$family-secondary: FiraSans-Medium;
+
+// Card
+$card-shadow: 0 8px 16px -8px rgba(0, 0, 0, 0.2);
+$box-shadow: 0 8px 16px -8px rgba(0, 0, 0, 0.2);
+$box-radius: 16px;
+
+$modal-background-background-color: rgba($modal-background, .9);
+
+// Button
+@import "button";
+
+// Select
+//$border: $color-blue-gray-04;
+//$control-border-width: 2px;
+//$checkbox-border-color: $color-blue-gray-04;
+
+
+@import '~bulma/bulma';
+@import '~buefy/src/scss/buefy';

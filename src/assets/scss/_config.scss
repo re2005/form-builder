@@ -1,0 +1,156 @@
+// Colors Gray
+$color-gray-00: #fff;
+$color-gray-10: #f3f3f3;
+$color-gray-15: #f8f8f8;
+$color-gray-20: #e3e3e3;
+$color-gray-30: #d3d3d3;
+$color-gray-40: #b3b3b3;
+$color-gray-50: #939393;
+$color-gray-60: #737373;
+$color-gray-70: #535353;
+$color-gray-80: #333;
+$color-gray-90: #141414;
+$color-gray-100: #000;
+
+
+// F24 Colors
+$color-blue: #128cf4;
+$color-blue-dark: #006ac5;
+$color-blue-darker: #194379;
+$color-blue-darkest: #0a1d36;
+$color-blue-light: #72b9f6;
+
+$color-green: #2cc164;
+$color-green-dark: #0b9f43;
+
+$color-red: #f96555;
+$color-red-dark: #d64738;
+
+$color-orange: #fb9b3f;
+
+$color-gray: #363636;
+
+// + Custom colors
+$color-blue-gray-01: #f0f0f2;
+$color-blue-gray-02: #819db5;
+$color-blue-gray-03: #4c667c;
+$color-blue-gray-04: #c0ceda;
+$modal-background: #000c1b;
+
+$COLORS: (
+        gray: (
+                default: $color-gray,
+                white: $color-gray-00,
+                10: $color-gray-10,
+                15: $color-gray-15,
+                20: $color-gray-20,
+                30: $color-gray-30,
+                40: $color-gray-40,
+                50: $color-gray-50,
+                60: $color-gray-60,
+                70: $color-gray-70,
+                80: $color-gray-80,
+                90: $color-gray-90,
+                black: $color-gray-100,
+                gray: $color-gray,
+        ),
+        blue: (
+                default: $color-blue,
+                dark: $color-blue-dark,
+                darker: $color-blue-darker,
+                darkest: $color-blue-darkest,
+                light: $color-blue-light
+        ),
+        green: (
+                default: $color-green,
+                dark: $color-green-dark
+        ),
+        red: (
+                default: $color-red,
+                dark: $color-red-dark
+        ),
+        orange: (
+                default: $color-orange
+        ),
+        custom: (
+                blue-gray-01: $color-blue-gray-01,
+                blue-gray-02: $color-blue-gray-02,
+                blue-gray-03: $color-blue-gray-03,
+                blue-gray-04: $color-blue-gray-04,
+                modal-background: $modal-background
+        )
+);
+
+// Generate helper classes for each color
+@each $g-num, $colorGroup in $COLORS {
+    @each $num, $color in $colorGroup {
+        .bg-#{$g-num}-#{$num} {
+            background-color: $color;
+        }
+    }
+}
+
+// Get color and it's color "color(blue, dark)"
+@function color($default, $shade: default) {
+    $color: map-get(map-get($COLORS, $default), $shade);
+    @return $color;
+}
+
+
+// Margins
+$margin-default: 10px;
+
+// Radius
+$border-radius: 16px;
+
+// Breakpoints
+$breakpoints: (
+        extraSmall: 425px,
+        small: 769px,
+        medium: 1024px,
+        large: 2000px
+);
+
+$small-font-sizes: (
+        default: (14px, 16px)
+);
+
+$regular-font-sizes: (
+        default: (15px, 24px),
+        medium: (17px, 24px)
+);
+
+$medium-font-sizes: (
+        default: (18px, 24px),
+        medium: (20px, 24px)
+);
+
+$big-font-sizes: (
+        default: (19px),
+        medium: (24px)
+);
+
+$h1-font-sizes: (
+        default: (32px, 36px),
+        medium: (48px, 52px)
+);
+
+$h2-font-sizes: (
+        default: (22px, 26px),
+        medium: (32px, 36px)
+);
+
+$h3-font-sizes: (
+        default: (19px, 23px),
+        medium: (24px, 28px)
+);
+
+$h4-font-sizes: (
+        default: (17px, 22px),
+        medium: (20px, 24px)
+);
+
+$h5-font-sizes: (
+        default: (15px, 20px),
+        medium: (16px, 18px),
+);
