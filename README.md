@@ -1,5 +1,7 @@
 # Form builder
 
+DEMO: https://re2005.github.io/form-builder/
+
 ## Project setup
 ```
 npm i
